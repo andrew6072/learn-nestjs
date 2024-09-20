@@ -1,9 +1,21 @@
 var http = require('http');
+var mymodule = require('./myfirstmodule')
+var url = require('url');
 // import the built-in http module in Node.js, which provides utilities to create an HTTP server
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('First node js server!');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write("The date and time are currently: " + mymodule.myDateTime() + "\n");
+    res.write(req.url + "\n");
+    var q = url.parse(req.url, true).query;
+    var txt = q.year + " " + q.month + "\n";
+    res.end(txt);
+
+    // res.write("4 + 5 = " + mymodule.add(4, 5) + "\n");
+    // res.write("4 - 5 = " + mymodule.subtract(4, 5) + "\n");
+    // res.write("4 * 5 = " + mymodule.multiply(4, 5) + "\n");
+    // res.write("4 / 5 = " + mymodule.divide(4, 5) + "\n");
+    // res.end('First node js server!');
 }).listen(8080);
 
 /**
