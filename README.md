@@ -27,7 +27,7 @@ JavaScript is single-threaded but the lower level api enable asynchronous nature
 Inside NodeJS there is a C library called Libuv responsible for the event loop and asynchronously handling tasks such as network requests, DNS resolution, file system operations, data encryption, etc.
 
 Pseudo code explaining the high level idea of Event loop in NodeJS:
-`
+```
 while (TaskList is not empty or EventQueue is not empty):
     if EventQueue is not empty:
         CallStack.put(EventQueue.pop())
@@ -42,7 +42,7 @@ while (TaskList is not empty or EventQueue is not empty):
         Libuv.add(task)
         // when Libuv finish the task, it will put it back to the EventQueue waiting for next call\
     CallStack.pop()
-`
+```
 
 ![Event loop in JS](https://res.cloudinary.com/practicaldev/image/fetch/s--Dg8fq92f--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pp9n3grfwgcaqgi30t4e.gif)
 
