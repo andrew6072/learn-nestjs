@@ -1,0 +1,20 @@
+Login
+curl -X POST http://localhost:3000/auth/login -d '{"username": "andrew", "password": "mypass"}' -H "Content-Type: application/json" -w "\n"
+
+Register
+curl -X POST http://localhost:3000/auth/register -d '{"username": "andrew", "password": "mypass"}' -H "Content-Type: application/json" -w "\n"
+
+Profile
+curl http://localhost:3000/auth/profile -w "\n"
+curl http://localhost:3000/auth/profile -H "Authorization: Bearer token" -w "\n"
+
+GetAll
+curl -X GET http://localhost:3000/users/ -w "\n"
+curl -X GET http://localhost:3000/users/ -H "Authorization: Bearer token" -w "\n"
+
+GetOne
+curl -X GET http://localhost:3000/users/john -w "\n"
+curl -X GET http://localhost:3000/users/john -H "Authorization: Bearer token" -w "\n"
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYW5kcmV3IiwiaWF0IjoxNzI4MjE2NzMyLCJleHAiOjE3MjgyMTczMzJ9.PD1lL8i5Y1N4jbuIeAaTgYhLYTTwSFchnNDE7MNPANc
